@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import SendIcon from "./icons/SendIcon";
+import SendingIcon from "./icons/SendingIcon";
 import axios from "axios";
 
 const Chat = () => {
@@ -115,7 +116,7 @@ const Chat = () => {
           <div className="w-full">
             <input
               style={{
-                background: "#333333",
+                background: loading ? "#000" : "#333333",
                 border: "none",
                 height: "3rem",
                 color: "white",
@@ -143,17 +144,17 @@ const Chat = () => {
           <button
             style={{
               position: "absolute",
-              color: "#000",
+              color: "#fff",
               right: 10,
               top: 0,
               bottom: 0,
               cursor: "pointer",
-              background: '#333333'
+              background: loading ? "#000" : "#333333",
             }}
             type="button"
             onClick={fetchChat}
           >
-            <SendIcon />
+            {!loading ? <SendIcon /> : <SendingIcon />}
           </button>
         </div>
 
